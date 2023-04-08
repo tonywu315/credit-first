@@ -1,4 +1,4 @@
-[
+const credit_cards = [
     {
         "bank": "Capital One",
         "card": "Platinum Mastercard®",
@@ -190,3 +190,5 @@
         "cashback": []
     }
 ]
+
+export default credit_cards

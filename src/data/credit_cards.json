@@ -1,0 +1,13 @@
+[
+    {
+        "bank": "",
+        "card": "",
+        "annual fee": "",
+        "secured": true,
+        "deposit": 0,
+        "cashback": [{
+            "amount": 0,
+            "category": ""
+        }]
+    }
+]

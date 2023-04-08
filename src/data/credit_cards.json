@@ -1,12 +1,68 @@
 [
     {
-        "bank": "",
-        "card": "",
-        "annual fee": "",
-        "secured": true,
+        "bank": "Chase",
+        "card": "Freedom Student",
+        "annual fee": 0,
+        "student": true,
+        "secured": false,
         "deposit": 0,
         "cashback": [{
+            "amount": 1,
+            "limit": 0,
+            "category": "all"
+        }]
+    },
+
+    {
+        "bank": "Bank of America",
+        "card": "BankAmericard Secured",
+        "annual fee": 0,
+        "student": false,
+        "secured": true,
+        "deposit": 200,
+        "cashback": [{
             "amount": 0,
+            "limit": 0,
+            "category": ""
+        }]
+    },
+
+    {
+        "bank": "Bank of America",
+        "card": "Customized Cash Rewards",
+        "annual fee": 0,
+        "student": true,
+        "secured": false,
+        "deposit": 200,
+        "cashback": [
+            {
+                "amount": 3,
+                "limit": 0,
+                "category": "choice"
+            },
+            {
+                "amount": 2,
+                "limit": 2500,
+                "category": "grocery"
+            },
+            {
+                "amount": 1,
+                "limit": 0,
+                "category": "other"
+            }
+        ]
+    },
+
+    {
+        "bank": "Citi",
+        "card": "Secured Mastercard",
+        "annual fee": 0,
+        "student": false,
+        "secured": true,
+        "deposit": 200,
+        "cashback": [{
+            "amount": 0,
+            "limit": 0,
             "category": ""
         }]
     }

@@ -1,7 +1,7 @@
 import creditCards from '../data/creditCards.js';
 
-const choose_card = () => {
+const chooseCard = () => {
     
 }
 
-export default choose_card
+export default chooseCard

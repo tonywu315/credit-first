@@ -17,6 +17,7 @@ export function Second() {
       <Input mt={5} placeholder="Food" {...register('food')} />
       <Input mt={5} placeholder="Gas" {...register('gas')} />
       <Input mt={5} placeholder="Debt" {...register('debt')} />
+      <Input mt={5} placeholder="Entertainment" {...register('entertainment')} />
 
       <Stack direction="row" spacing={4} justify="center" mt={5}>
         <Button onClick={previousStep}>Previous</Button>

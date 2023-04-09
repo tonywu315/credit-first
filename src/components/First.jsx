@@ -15,7 +15,9 @@ export function First() {
       <Text fontWeight={'bold'}>Age</Text>
       <Input mt={5} placeholder="" type="number" {...register('age')} />
       <Checkbox defaultChecked {...register('student')}>Student?</Checkbox>
-
+      <Text fontWeight={'bold'}>Credit Score (if applicable)</Text>
+      <Input mt={5} placeholder="" type="number" {...register('creditScore')} />
+ 
       <Text fontWeight={'bold'}>Financial Goals</Text>
       <Select placeholder='' {...register('goals')}>
         <option value='saving'>Saving Money</option>

@@ -18,19 +18,21 @@ const getTips = async (data) => {
                     advice would you give? Use the numbers given in this \
                     prompt to inform your decisions.`;
 
-    let result = null;
+    let result = "";
+
+    result = "Here are 3 ways to help you succeed: 1. Increase your income by finding a second job or taking on freelance work. 2. Cut back on entertainment and food expenses and redirect that money towards paying off debt. 3. Create a budget and stick to it to ensure that you are able to pay off your debt and save for your future goals."
 
     const openai = new OpenAIApi(configuration);
     try {
-        const completion = await openai.createCompletion({
-            model: "text-davinci-003",
-            prompt: prompt,
-            max_tokens: 1024,
-            temperature: 0.5,
-            n: 1,
-        });
-        result = completion.data.choices[0].text;
-        console.log("hi")
+        // const completion = await openai.createCompletion({
+        //     model: "text-davinci-003",
+        //     prompt: prompt,
+        //     max_tokens: 1024,
+        //     temperature: 0.5,
+        //     n: 1,
+        // });
+        // result = completion.data.choices[0].text;
+        ;
     } catch (error) {
         if (error.response) {
             console.log(error.response.status);

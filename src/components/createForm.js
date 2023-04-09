@@ -5,7 +5,7 @@ export const useForm = createForm({
     student: false,
     age: 0,
     goals: "",
-    creditScore: null,
+    creditScore: 0,
     income: 0,
     rent: 0,
     food: 0,

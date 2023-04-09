@@ -1,6 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import classes from "./About.module.css";
 
 export function About() {
+    const navigate = useNavigate();
+
     return (
         <div className={classes.container}>
             <div className={classes.center}>
@@ -30,6 +33,7 @@ export function About() {
                 <br />
                 best financial recommendations.
                 </p>
+                <button onClick={() => navigate("/")}>Home</button>
             </div>
         </div>
     )

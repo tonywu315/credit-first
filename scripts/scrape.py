@@ -129,5 +129,5 @@ for type, link in LINKS.items():
                 "link": link,
             }
 
-with open("../data/credit_cards.json", "w") as f:
+with open("../src/data/credit_cards.json", "w") as f:
     f.write(json.dumps(credit_cards))

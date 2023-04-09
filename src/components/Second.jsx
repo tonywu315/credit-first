@@ -12,23 +12,26 @@ export const Second = () => {
             <Text fontWeight={"bold"} fontSize="2xl">
                 Monthly Spending
             </Text>
-            <Input placeholder="Income" type="number" {...register("income")} />
-            <Input placeholder="Rent" type="number" {...register("rent")} />
-            <Input placeholder="Food" type="number" {...register("food")} />
-            <Input placeholder="Gas" type="number" {...register("gas")} />
+            <Input isInvalid errorBorderColor='#517FA2' variant="filled" placeholder="Income" type="number" {...register("income")} />
+            <Input isInvalid errorBorderColor='#517FA2' variant="filled" placeholder="Rent" type="number" {...register("rent")} />
+            <Input isInvalid errorBorderColor='#517FA2' variant="filled" placeholder="Food" type="number" {...register("food")} />
+            <Input isInvalid errorBorderColor='#517FA2' variant="filled" placeholder="Gas" type="number" {...register("gas")} />
             <Input
+                isInvalid 
+                errorBorderColor='#517FA2' 
+                variant="filled"
                 placeholder="Entertainment"
                 type="number"
                 {...register("entertainment")}
             />
-            <Input placeholder="Debt" type="number" {...register("debt")} />
-            <Input placeholder="Other" type="number" {...register("other")} />
+            <Input isInvalid errorBorderColor='#517FA2' variant="filled" placeholder="Debt" type="number" {...register("debt")} />
+            <Input isInvalid errorBorderColor='#517FA2' variant="filled" placeholder="Other" type="number" {...register("other")} />
             <Stack direction="row" spacing={4} justify="center">
-                <Button onClick={previousStep}>Previous</Button>
-                <Button colorScheme="teal" type="reset">
+                <Button colorScheme="blue" onClick={previousStep}>Previous</Button>
+                <Button colorScheme="blue" type="reset">
                     Reset
                 </Button>
-                <Button colorScheme="teal" type="submit">
+                <Button colorScheme="blue" type="submit">
                     Submit
                 </Button>
             </Stack>

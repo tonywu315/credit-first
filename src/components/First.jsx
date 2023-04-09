@@ -14,7 +14,7 @@ export const First = () => {
             <Text className={classes.text} fontWeight={"bold"}>
                 Age
             </Text>
-            <Input placeholder="" type="number" {...register("age")} />
+            <Input isInvalid errorBorderColor='#517FA2' placeholder="" type="number" {...register("age")} />
             <Checkbox {...register("student")}>
                 <b className={classes.text}>Student?</b>
             </Checkbox>
@@ -22,6 +22,8 @@ export const First = () => {
                 Credit Score (if applicable)
             </Text>
             <Input
+                isInvalid 
+                errorBorderColor='#517FA2' 
                 colorScheme="blue"
                 placeholder=""
                 type="number"
@@ -30,7 +32,7 @@ export const First = () => {
             <Text className={classes.text} fontWeight={"bold"}>
                 Financial Goals
             </Text>
-            <Select placeholder="" {...register("goals")}>
+            <Select isInvalid errorBorderColor='#517FA2'  placeholder="" {...register("goals")}>
                 <option value="saving">Saving Money</option>
                 <option value="credit">Building Credit</option>
                 <option value="debt">Paying off Debt</option>

@@ -5,13 +5,27 @@
     justify-items: center;
 }
 
+.title {
+    margin-top: 80px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.infoheading {
+    font-size: 18px;
+    font-weight: bold;
+}
+
 .card {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .info {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 40px;
+    max-width: 50%;
 }

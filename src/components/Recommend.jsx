@@ -103,24 +103,34 @@ export const Recommend = () => {
             setTips(response);
         };
         if (userData) {
-            console.log(userData);
             callTips();
         }
     }, []);
 
     return (
         <div className={classes.container}>
-            <p className={classes.title}>Our Recommendation: {winner.name}</p>
+            <p className={classes.title}>
+                Our Recommendation:{" "}
+                <a href={winner.link} target="_blank">
+                    {winner.name}
+                </a>
+            </p>
             <div className={classes.card}>
                 <img src={winner.image} alt="credit card" />
                 <div className={classes.info}>
+                    <p className={classes.infoheading}>By the numbers</p>
                     <p>APR: {winner.apr}%</p>
                     <p>Annual Fee: ${winner.annual_fee}</p>
                     <p>Estimated Cashback: ${bestCashback}</p>
                     {winner.cashback?.length > 0 && (
                         <>
-                            <p>Cashback Structure</p>
+                            <p className={classes.infoheading}>
+                                Cashback Structure
+                            </p>
                             {cashbackDetails}
+                            <p className={classes.infoheading}>
+                                Estimated Cashback: ${bestCashback}
+                            </p>
                         </>
                     )}
                 </div>

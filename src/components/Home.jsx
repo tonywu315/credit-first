@@ -7,9 +7,9 @@ export const Home = () => {
     return (
         <div className={classes.container}>
             <img className={classes.logo} src="./geometric.png" alt="logo" />
-            <a className={classes.about} onClick={() => navigate("/about")}>
+            <span onClick={() => navigate("/about")}>
                 What is Credit First?
-            </a>
+            </span>
             <img className={classes.card} src="./credit_cards.png" alt="logo" />
             <div className={classes.center}>
                 <p className={classes.title}>FINANCE YOUR FUTURE</p>

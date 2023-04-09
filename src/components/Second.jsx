@@ -24,7 +24,9 @@ export const Second = () => {
             <Input placeholder="Debt" type="number" {...register("debt")} />
             <Input placeholder="Other" type="number" {...register("other")} />
             <Stack direction="row" spacing={4} justify="center">
-                <Button onClick={previousStep}>Previous</Button>
+                <Button colorScheme="teal" onClick={previousStep}>
+                    Previous
+                </Button>
                 <Button colorScheme="teal" type="reset">
                     Reset
                 </Button>

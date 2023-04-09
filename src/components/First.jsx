@@ -11,6 +11,9 @@ export const First = () => {
 
     return (
         <Stack p={10} spacing="12px">
+            <Text fontWeight={"bold"} fontSize="2xl">
+                General Info
+            </Text>
             <Text className={classes.text} fontWeight={"bold"}>
                 Age
             </Text>

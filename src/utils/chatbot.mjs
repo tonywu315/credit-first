@@ -24,14 +24,14 @@ const getTips = async (data) => {
 
     const openai = new OpenAIApi(configuration);
     try {
-        // const completion = await openai.createCompletion({
-        //     model: "text-davinci-003",
-        //     prompt: prompt,
-        //     max_tokens: 1024,
-        //     temperature: 0.5,
-        //     n: 1,
-        // });
-        // result = completion.data.choices[0].text;
+        const completion = await openai.createCompletion({
+            model: "text-davinci-003",
+            prompt: prompt,
+            max_tokens: 1024,
+            temperature: 0.5,
+            n: 1,
+        });
+        result = completion.data.choices[0].text;
         ;
     } catch (error) {
         if (error.response) {
@@ -41,8 +41,23 @@ const getTips = async (data) => {
             console.log(error.message);
         }
     }
+    
+    let third = "tip #3"
+    let second = "tip #2"
+    let first = "tip #1"
+    try {
+        third = result.split('3.')[1].trim();
+        second = result.split('3.')[0].split('2.')[1].trim();
+        first = result.split('3.')[0].split('2.')[0].split('1.')[1].trim();
+    } catch (e) {
+        console.log(e)
+    }
 
-    return result;
+    return <ol>
+        <li>{first}</li>
+        <li>{second}</li>
+        <li>{third}</li>
+    </ol>;
 };
 
 getTips();

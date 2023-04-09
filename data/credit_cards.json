@@ -1,0 +1,314 @@
+{
+    "Capital One Platinum Secured Credit Card": {
+        "cashback": null,
+        "annual_fee": "0",
+        "apr": "29.99",
+        "credit": 0,
+        "student": false,
+        "secured": false
+    },
+    "Capital One Quicksilver Secured Cash Rewards Credit Card": {
+        "cashback": "5%, Earn unlimited 5% cash back on hotels and rental cars booked through Capital One Travel, where you'll get Capital One's best prices on thousands of trip options. Terms apply, 1.5%, Earn unlimited 1.5% cash back on every purchase, everywhere",
+        "annual_fee": "0",
+        "apr": "29.99",
+        "credit": 0,
+        "student": false,
+        "secured": false
+    },
+    "Discover it Secured Credit Card": {
+        "cashback": "2%, Earn 2% cash back at Gas Stations and Restaurants on up to $1,000 in combined purchases each quarter., 1%, Earn unlimited 1% cash back on all other purchases \u2013 automatically.",
+        "annual_fee": "0",
+        "apr": "27.74",
+        "credit": 0,
+        "student": false,
+        "secured": false
+    },
+    "Self - Credit Builder Account with Secured Visa Credit Card": {
+        "cashback": null,
+        "annual_fee": "25",
+        "apr": "26.99",
+        "credit": 0,
+        "student": false,
+        "secured": false
+    },
+    "OpenSky Secured Visa Credit Card": {
+        "cashback": null,
+        "annual_fee": "35",
+        "apr": "21.89",
+        "credit": 0,
+        "student": false,
+        "secured": false
+    },
+    "First Progress Platinum Elite Mastercard Secured Credit Card": {
+        "cashback": null,
+        "annual_fee": "29",
+        "apr": "24.74",
+        "credit": 0,
+        "student": false,
+        "secured": true
+    },
+    "First Progress Platinum Prestige Mastercard Secured Credit Card": {
+        "cashback": "1% Cash Back, Earn 1% Cash Back Rewards on payments!",
+        "annual_fee": "49",
+        "apr": "14.74",
+        "credit": 0,
+        "student": false,
+        "secured": true
+    },
+    "Discover it Student Cash Back": {
+        "cashback": "5%, Earn 5% cash back on everyday purchases at different places each quarter like Amazon.com, grocery stores, restaurants, and gas stations, up to the quarterly maximum when you activate., 1%, Plus, earn unlimited 1% cash back on all other purchases - automatically.",
+        "annual_fee": "0",
+        "apr": "17.74",
+        "credit": 0,
+        "student": true,
+        "secured": false
+    },
+    "Mission Lane Visa Credit Card": {
+        "cashback": null,
+        "annual_fee": "0 - $59",
+        "apr": "26.99",
+        "credit": 300,
+        "student": false,
+        "secured": false
+    },
+    "Capital One Platinum Credit Card": {
+        "cashback": null,
+        "annual_fee": "0",
+        "apr": "29.99",
+        "credit": 580,
+        "student": false,
+        "secured": false
+    },
+    "Capital One QuicksilverOne Cash Rewards Credit Card": {
+        "cashback": "5%, Earn unlimited 5% cash back on hotels and rental cars booked through Capital One Travel, where you'll get Capital One's best prices on thousands of trip options. Terms apply, 1.5%, Earn unlimited 1.5% cash back on every purchase, every day",
+        "annual_fee": "39",
+        "apr": "29.99",
+        "credit": 580,
+        "student": false,
+        "secured": false
+    },
+    "Mission Lane Cash Back Visa Credit Card": {
+        "cashback": "1-1.5% Cash Back, Unlimited 1-1.5% Cash Back on all Purchases",
+        "annual_fee": "0",
+        "apr": "26.99",
+        "credit": 580,
+        "student": false,
+        "secured": false
+    },
+    "Credit One Bank Wander Card": {
+        "cashback": "10X, Earn 10x points on eligible hotels and car rentals booked through the Credit One Bank travel partner site, 5X, Earn 5x points on eligible travel, dining, and gas, 1X, Earn 1x points on all other purchases",
+        "annual_fee": "95",
+        "apr": "28.49",
+        "credit": 580,
+        "student": false,
+        "secured": false
+    },
+    "Avant Credit Card": {
+        "cashback": null,
+        "annual_fee": "59",
+        "apr": "29.74",
+        "credit": 580,
+        "student": false,
+        "secured": false
+    },
+    "Indigo Mastercard": {
+        "cashback": null,
+        "annual_fee": "0-$99",
+        "apr": "24.90",
+        "credit": 300,
+        "student": false,
+        "secured": false
+    },
+    "Upgrade Cash Rewards Visa": {
+        "cashback": "1.5%, Earn 1.5% unlimited cash back on card purchases every time you make a payment",
+        "annual_fee": "0",
+        "apr": "14.99",
+        "credit": 580,
+        "student": false,
+        "secured": false
+    },
+    "Capital One SavorOne Cash Rewards Credit Card": {
+        "cashback": "10%, Earn 10% cash back on purchases made through Uber & Uber Eats, plus complimentary Uber One membership statement credits through 11/14/2024, 8%, Earn 8% cash back on Capital One Entertainment purchases, 5%, Earn unlimited 5% cash back on hotels and rental cars booked through Capital One Travel, where you'll get Capital One's best prices on thousands of trip options. Terms apply, 3%, Earn unlimited 3% cash back on dining, entertainment, popular streaming services and at grocery stores (excluding superstores like Walmart\u00ae and Target\u00ae)., 1%, Earn 1% on all other purchases.",
+        "annual_fee": "0",
+        "apr": "19.74",
+        "credit": 670,
+        "student": false,
+        "secured": false
+    },
+    "Discover it Cash Back": {
+        "cashback": "5%, Earn 5% cash back on everyday purchases at different places each quarter like Amazon.com, grocery stores, restaurants, and gas stations, up to the quarterly maximum when you activate., 1%, Plus, earn unlimited 1% cash back on all other purchases \u2013 automatically.",
+        "annual_fee": "0",
+        "apr": "16.74",
+        "credit": 670,
+        "student": false,
+        "secured": false
+    },
+    "Blue Cash Everyday Card from American Express": {
+        "cashback": "3%, 3% Cash Back at U.S. supermarkets on up to $6,000 per year in purchases, then 1%., 3%, 3% Cash Back on U.S. online retail purchases, on up to $6,000 per year, then 1%., 3%, 3% Cash Back at U.S. gas stations, on up to $6,000 per year in purchases, then 1%., 1%, 1% Cash Back on other purchases.",
+        "annual_fee": "0",
+        "apr": "18.74",
+        "credit": 670,
+        "student": false,
+        "secured": false
+    },
+    "Capital One Venture Rewards Credit Card": {
+        "cashback": "5X, Earn 5X miles on hotels and rental cars booked through Capital One Travel, where you'll get Capital One's best prices on thousands of trip options, 2X, Earn unlimited 2X miles on every purchase, every day.",
+        "annual_fee": "95",
+        "apr": "20.74",
+        "credit": 670,
+        "student": false,
+        "secured": false
+    },
+    "My GM Rewards Card\u2122": {
+        "cashback": "7X, Earn unlimited 7x total points with GM., 4X, 4x points on purchases everywhere else.",
+        "annual_fee": "0",
+        "apr": "19.7429.74.412023",
+        "credit": 670,
+        "student": false,
+        "secured": false
+    },
+    "Blue Cash Preferred Card from American Express": {
+        "cashback": "6%, 6% Cash Back at U.S. supermarkets on up to $6,000 per year in purchases (then 1%)., 6%, 6% Cash Back on select U.S. streaming subscriptions., 3%, 3% Cash Back on transit including taxis/rideshare, parking, tolls, trains, buses and more., 3%, 3% Cash Back at U.S. gas stations, 1%, 1% Cash Back on other purchases",
+        "annual_fee": "0 intro annual fee for the first year, then $95.",
+        "apr": "18.74",
+        "credit": 670,
+        "student": false,
+        "secured": false
+    },
+    "Discover it chrome": {
+        "cashback": "2%, Earn cash back on your next road trip with 2% cash back at Gas Stations and Restaurants on up to $1,000 in combined purchases each quarter., 1%, Plus, earn unlimited 1% cash back on all other purchases - automatically.",
+        "annual_fee": "0",
+        "apr": "16.74",
+        "credit": 670,
+        "student": false,
+        "secured": false
+    },
+    "Credit One Bank Platinum X5 Visa": {
+        "cashback": "5%, Get 5% cash back rewards on the first $5,000 of eligible gas, grocery, internet, cable, satellite TV, and mobile phone service purchases each year, and then 1% thereafter., 1%, 1% cash back rewards on all other purchases. Terms Apply.",
+        "annual_fee": "95",
+        "apr": "28.49",
+        "credit": 580,
+        "student": false,
+        "secured": false
+    },
+    "Capital One Quicksilver Cash Rewards Credit Card": {
+        "cashback": "5%, Earn unlimited 5% cash back on hotels and rental cars booked through Capital One Travel, where you'll get Capital One's best prices on thousands of trip options. Terms apply, 1.5%, Earn unlimited 1.5% cash back on every purchase, every day",
+        "annual_fee": "0",
+        "apr": "19.74",
+        "credit": 670,
+        "student": false,
+        "secured": false
+    },
+    "Citi Double Cash Card": {
+        "cashback": "2%, Earn 2% on every purchase with unlimited 1% cash back when you buy, plus an additional 1% as you pay for those purchases.",
+        "annual_fee": "0",
+        "apr": "18.74",
+        "credit": 670,
+        "student": false,
+        "secured": false
+    },
+    "Capital One VentureOne Rewards Credit Card": {
+        "cashback": "5X, Earn 5X miles on hotels and rental cars booked through Capital One Travel, where you'll get Capital One's best prices on thousands of trip options, 1.25X, Earn unlimited 1.25X miles on every purchase, every day.",
+        "annual_fee": "0",
+        "apr": "19.74",
+        "credit": 670,
+        "student": false,
+        "secured": false
+    },
+    "Citi Rewards+ Card": {
+        "cashback": "2X, Earn 2X ThankYou\u00ae Points at Supermarkets and Gas Stations for the first $6,000 per year and then 1X Points thereafter., 1X, Earn 1X ThankYou\u00ae Points on All Other Purchases.",
+        "annual_fee": "0",
+        "apr": "18.24",
+        "credit": 670,
+        "student": false,
+        "secured": false
+    },
+    "Discover it Student chrome": {
+        "cashback": "2%, Earn 2% cash back at Gas Stations and Restaurants on up to $1,000 in combined purchases each quarter., 1%, Plus, earn unlimited 1% cash back on all other purchases - automatically.",
+        "annual_fee": "0",
+        "apr": "17.74",
+        "credit": 0,
+        "student": true,
+        "secured": false
+    },
+    "Chase Freedom Student credit card": {
+        "cashback": "1%, Earn 1% cash back on all purchases plus $20 Good Standing Rewards after each account anniversary for up to 5 years",
+        "annual_fee": "0",
+        "apr": "19.49",
+        "credit": 670,
+        "student": true,
+        "secured": false
+    },
+    "Capital One Quicksilver Student Cash Rewards Credit Card": {
+        "cashback": "10%, Earn 10% cash back on purchases made through Uber & Uber Eats, plus complimentary Uber One membership statement credits through 11/14/2024, 1.5%, Earn unlimited 1.5% cash back on every purchase, every day",
+        "annual_fee": "0",
+        "apr": "19.74",
+        "credit": 580,
+        "student": true,
+        "secured": false
+    },
+    "Capital One SavorOne Student Cash Rewards Credit Card": {
+        "cashback": "10%, Earn 10% cash back on purchases made through Uber & Uber Eats, plus complimentary Uber One membership statement credits through 11/14/2024, 8%, Earn 8% cash back on entertainment purchases when you book through the Capital One Entertainment portal, 5%, Earn unlimited 5% cash back on hotels and rental cars booked through Capital One Travel, where you'll get Capital One's best prices on thousands of trip options. Terms apply, 3%, Earn unlimited 3% cash back on dining, entertainment, popular streaming services and at grocery stores (excluding superstores like Walmart\u00ae and Target\u00ae), 1%, Earn 1% on all other purchases.",
+        "annual_fee": "0",
+        "apr": "19.74",
+        "credit": 580,
+        "student": true,
+        "secured": false
+    },
+    "Petal 1 \"No Annual Fee\" Visa Credit Card": {
+        "cashback": "2% - 10% cash back, 2% - 10% cash back at select merchants",
+        "annual_fee": "0",
+        "apr": "24.49",
+        "credit": 580,
+        "student": true,
+        "secured": false
+    },
+    "Petal 2 \"Cash Back, No Fees\" Visa Credit Card": {
+        "cashback": "1.5%, Up to 1.5% cash back on eligible purchases after making 12 on-time monthly payments., 1%, 1% cash back on eligible purchases right away.",
+        "annual_fee": "0",
+        "apr": "17.49",
+        "credit": 0,
+        "student": true,
+        "secured": false
+    },
+    "Wells Fargo Active Cash Card": {
+        "cashback": "2%, Earn unlimited 2% cash rewards on purchases",
+        "annual_fee": "0",
+        "apr": "19.7424.7429.74",
+        "credit": 670,
+        "student": false,
+        "secured": false
+    },
+    "U.S. Bank Cash+ Visa Signature Card": {
+        "cashback": "5%, 5% cash back on your first $2,000 in eligible net purchases each quarter on the combined two categories you choose., 5%, 5% cash back on prepaid air, hotel and car reservations booked directly in the Rewards Center., 2%, 2% cash back on one everyday category, like Gas Stations/EV Charging Stations, Grocery Stores or Restaurants., 1%, 1% cash back on all other eligible purchases.",
+        "annual_fee": "0",
+        "apr": "19.24",
+        "credit": 670,
+        "student": false,
+        "secured": false
+    },
+    "Citi Custom Cash\u2120 Card": {
+        "cashback": "5%, Earn 5% cash back on purchases in your top eligible spend category each billing cycle, up to the first $500 spent, 1% cash back thereafter., 1%, Earn unlimited 1% cash back on all other purchases.",
+        "annual_fee": "0",
+        "apr": "18.74",
+        "credit": 670,
+        "student": false,
+        "secured": false
+    },
+    "Bank of America Customized Cash Rewards credit card": {
+        "cashback": "3%, Earn 3% cash back in the category of your choice (up to $2,500 in combined choice category/grocery store/wholesale club quarterly purchases)., 2%, Earn automatic 2% at grocery stores and wholesale clubs (up to $2,500 in combined choice category/grocery store/wholesale club quarterly purchases)., 1%, Earn unlimited 1% on all other purchases.",
+        "annual_fee": "0",
+        "apr": "17.74",
+        "credit": 670,
+        "student": false,
+        "secured": false
+    },
+    "Upgrade Cash Rewards Elite Visa": {
+        "cashback": "2.2%, Earn 2.2% unlimited cash back on card purchases every time you make a payment",
+        "annual_fee": "0",
+        "apr": "14.99",
+        "credit": 670,
+        "student": false,
+        "secured": false
+    }
+}

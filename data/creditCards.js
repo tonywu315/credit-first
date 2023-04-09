@@ -78,31 +78,6 @@ const credit_cards = [
         ]
     },
     {
-        "bank": "Truist Bank",
-        "card": "Truist Enjoy Cash Secured",
-        "annual fee": 19,
-        "student": false,
-        "secured": true,
-        "deposit": 0,
-        "cashback": [
-            {
-                "amount": 3,
-                "limit": 0,
-                "category": "gas"
-            },
-            {
-                "amount": 2,
-                "limit": 1000,
-                "category": "groceries"
-            },
-            {
-                "amount": 1,
-                "limit": 0,
-                "category": "all"
-            }
-        ]
-    },
-    {
         "bank": "PNC Financial Services",
         "card": "PNC Secured Visa®",
         "annual fee": 0,
@@ -116,8 +91,8 @@ const credit_cards = [
         "card": "Student Cash Back",
         "annual fee": 0,
         "student": true,
-        "secured": true,
-        "deposit": 300,
+        "secured": false,
+        "deposit": 0,
         "cashback": [
             {
                 "amount": 5,

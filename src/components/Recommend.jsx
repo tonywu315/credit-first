@@ -121,7 +121,6 @@ export const Recommend = () => {
                     <p className={classes.infoheading}>By the numbers</p>
                     <p>APR: {winner.apr}%</p>
                     <p>Annual Fee: ${winner.annual_fee}</p>
-                    <p>Estimated Cashback: ${bestCashback}</p>
                     {winner.cashback?.length > 0 && (
                         <>
                             <p className={classes.infoheading}>

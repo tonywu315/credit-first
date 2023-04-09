@@ -1,14 +1,8 @@
-import { useNavigate } from "react-router-dom";
-import classes from "./Home.module.css";
+import classes from "./About.module.css";
 
-export const Home = () => {
-    const navigate = useNavigate();
-
+export function About() {
     return (
         <div className={classes.container}>
-            <img className={classes.logo} src="./geometric.png" alt="logo" />
-            <a className={classes.about} onClick={() => navigate("/about")}>What is Credit First?</a>
-            <img className={classes.card} src="./credit_cards.png" alt="logo" />
             <div className={classes.center}>
                 <p className={classes.title}>FINANCE YOUR FUTURE</p>
                 <p className={classes.text}>
@@ -22,8 +16,7 @@ export const Home = () => {
                     <br />
                     Start your journey today!
                 </p>
-                <button onClick={() => navigate("/form")}>Get Started</button>
             </div>
         </div>
-    );
-};
+    )
+}

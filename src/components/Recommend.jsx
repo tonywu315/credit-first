@@ -16,8 +16,6 @@ import cardsData from "./../data/credit_cards.json";
 import { ClassNames } from "@emotion/react";
 import classes from "./Recommend.module.css";
 
-import classes from './Recommend.module.css';
-
 export function Recommend() {
     let params = useParams();
     let userData = JSON.parse(
@@ -107,17 +105,30 @@ export function Recommend() {
         }
     }
 
-    console.log(winner.cashback.length);
+    let cashbackDetails = []
+
+    for (const cashback of winner.cashback) {
+      cashbackDetails.push(<p>{cashback.description}</p>)
+    }
 
     return (
         <div className={classes.container}>
-            <p className={classes.title}>Our Recommendation {"temp"}</p>
+            <p className={classes.title}>Our Recommendation</p>
             <div className={classes.card}>
                 <div className={classes.image}>
-                    <img src="" alt="credit card" />
-                    <p>Discover</p>
+                  <img src={winner.image} alt="credit card" />
+                  <p>{winner.name}</p>
                 </div>
-                <div className={classes.info}></div>
+                <div className={classes.info}>
+                  <p>APR: {winner.apr}%</p>
+                  <p>Annual Fee: ${winner.annual_fee}</p>
+                  {winner.cashback.length > 0 && 
+                  <>
+                    <p>Cashback Structure</p>
+                    {cashbackDetails}
+                  </>
+                  }
+                </div>
             </div>
             <div className={classes.tips}></div>
         </div>

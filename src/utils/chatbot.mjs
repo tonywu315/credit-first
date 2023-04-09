@@ -58,9 +58,9 @@ const getTips = async (data) => {
 
     return (
         <ol>
-            <li>{first}</li>
-            <li>{second}</li>
-            <li>{third}</li>
+            <li><span>{first}</span></li>
+            <li><span>{second}</span></li>
+            <li><span>{third}</span></li>
         </ol>
     );
 };

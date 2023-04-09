@@ -11,14 +11,6 @@
     position: absolute;
 }
 
-.about {
-    position: absolute;
-    color: gray;
-    font-size: 18px;
-    top: 5vh;
-    left: 85vw;
-}
-
 .logo {
     top: 5vh;
     left: 5vh;
@@ -28,7 +20,7 @@
 .card {
     bottom: 5%;
     right: 5%;
-    height: 35%; 
+    height: 35%;
 }
 
 .title {
@@ -56,7 +48,46 @@
     height: 72px;
     margin-top: 48px;
     border-radius: 24px;
-    background-color: #517FA2;
+    background-color: #517fa2;
     font-size: 36px;
-    color: #EDF2F7;
+    color: #edf2f7;
+}
+
+.container > span {
+    position: absolute;
+    color: gray;
+    font-size: 18px;
+    top: 5vh;
+    right: 5vh;
+    background-image: linear-gradient(to right, #54b3d6, #54b3d6 50%, #000 50%);
+    background-size: 200% 100%;
+    background-position: -100%;
+    display: inline-block;
+    padding: 5px 0;
+    font-size: 24px;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.3s ease-in-out;
+}
+
+.container > span:before {
+    content: "";
+    background: none;
+    display: block;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+.container > span:hover {
+    background-position: 0;
+    cursor: pointer;
+}
+
+.container > span:hover::before {
+    background: #54b3d6;
+    width: 100%;
 }

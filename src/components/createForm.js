@@ -4,7 +4,7 @@ export const useForm = createForm({
   initialValues: {
     student: false,
     age: 0,
-    goals: [0],
+    goals: "",
     income: 0,
     rent: 0,
     food: 0,

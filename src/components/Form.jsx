@@ -19,7 +19,6 @@ export function Form() {
   const handleSubmit = (values) => {
     console.log(values)
     navigate("/recommend/" + Buffer.from(JSON.stringify(values)).toString("base64"))
-    // setData(values)
     
   };
 

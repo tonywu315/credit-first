@@ -7,7 +7,7 @@ export function Recommend() {
 
   return (
     <div>
-      { userData }
+      { JSON.stringify(userData) }
     </div>
   )
 }

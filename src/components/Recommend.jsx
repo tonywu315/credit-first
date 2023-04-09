@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom"
 import { Buffer } from "buffer"
 
-import { Grid, GridItem, Container } from "@chakra-ui/react";
+import { Center, Image, HStack, VStack, Box, Container, Grid, Text } from "@chakra-ui/react";
 
 import cardsData from './../data/credit_cards.json';
 
@@ -86,25 +86,38 @@ export function Recommend() {
     factor = (userData.age-18)/userData.debt + total - card.annual_fee
     if (factor === maximizer) {
       winner = card
+      winner.name = name
     }
   }
 
-  console.log(winner)
+  console.log(winner.cashback.length)
 
   return (
     <div>
-        <Grid
-          h='100vh'
-          w='100vw'
-          templateRows='repeat(2, 1fr)'
-          templateColumns='repeat(5, 1fr)'
-          gap={4}
-        >
-          <GridItem rowSpan={2} colSpan={1} bg='tomato' />
-          <GridItem colSpan={2} bg='papayawhip' />
-          <GridItem colSpan={2} bg='papayawhip' />
-          <GridItem colSpan={4} bg='tomato' />
-        </Grid>
+      <Container h='100vh' maxWidth="container.lg">
+        <VStack spacing="10px">
+          <Box h='13vh' w='100vh' bg="tomato"></Box>
+          <Text align='left' fontSize='34px'>Our Best Choice</Text>
+          <Box h='45vh' w='100vh'>
+            <a href={winner.link} rel="noreferrer noopener" target="_blank">  
+            <VStack spacing='8px'>
+              <HStack maxWidth='50%' spacing='40px'>
+                <img src={winner.image}/>
+                <Text fontSize='28px' fontWeight='bold'>{winner.name}</Text>
+              </HStack>
+              
+              <div style={{display: 'flex', justifyContent: 'center'}}>
+                <div>
+                  
+                </div>
+              </div>
+            </VStack>
+            </a>
+          </Box>
+          <Box h='30vh' w='100vh'></Box>
+          <Box h='5vh' w='100vh' bg="tomato"></Box>
+        </VStack>
+      </Container>
     </div>
   )
 }

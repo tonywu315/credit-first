@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Buffer } from "buffer";
+import { Spinner } from "@chakra-ui/react";
 import getTips from "../utils/chatbot.mjs";
 import cardsData from "./../data/credit_cards.json";
 import classes from "./Recommend.module.css";
@@ -10,6 +11,7 @@ export const Recommend = () => {
     const [tips, setTips] = useState("");
     const [winner, setWinner] = useState({});
     const [bestCashback, setBestCashback] = useState(Number.NEGATIVE_INFINITY);
+    const [bestCashbackParts, setBestCashbackParts] = useState([]);
     const [cashbackDetails, setCashbackDetails] = useState({});
 
     let userData = JSON.parse(
@@ -31,6 +33,12 @@ export const Recommend = () => {
             entertainment: userData.entertainment,
         };
         const mostExpensive = Math.max(Object.values(userCategories));
+        const mostCategory =
+            userCategories.food === mostExpensive
+                ? "Food"
+                : userCategories.gas === mostExpensive
+                ? "Gas"
+                : "Entertainment";
         const availableNames = Object.keys(cardsData)
             .filter((name) => {
                 let card = cardsData[name];
@@ -51,29 +59,45 @@ export const Recommend = () => {
 
         let bestCash = Number.NEGATIVE_INFINITY;
         let bestCard = null;
+        let bestCashParts;
 
         for (const name of availableNames) {
             let card = cardsData[name];
             card["name"] = name;
 
             let cashback = 0.0;
+            let entries = {
+                Food: 0,
+                Gas: 0,
+                Entertainment: 0,
+                Other: 0,
+            };
+
             Object.entries(userCategories).forEach((entry) => {
                 const [key, value] = entry;
                 for (const source of card.cashback) {
-                    if (
-                        source.category.includes(key) ||
-                        (source.category.includes("choice") &&
-                            value === mostExpensive) ||
-                        source.category[0] === "all"
+                    const amount =
+                        source.limit === 0
+                            ? (12 * value * source.amount) / 100.0
+                            : Math.min(
+                                  source.limit,
+                                  (12 * value * source.amount) / 100.0
+                              );
+                    if (source.category.includes(key)) {
+                        const type = key.charAt(0).toUpperCase() + key.slice(1);
+                        entries[type] = amount;
+                        cashback += amount;
+                        break;
+                    } else if (
+                        source.category.includes("choice") &&
+                        value === mostExpensive
                     ) {
-                        if (source.limit === 0) {
-                            cashback += (12 * value * source.amount) / 100.0;
-                        } else {
-                            cashback += Math.min(
-                                source.limit,
-                                (12 * value * source.amount) / 100.0
-                            );
-                        }
+                        entries[mostCategory] = amount;
+                        cashback += amount;
+                        break;
+                    } else if (source.category[0] === "all") {
+                        entries.Other = amount;
+                        cashback += amount;
                         break;
                     }
                 }
@@ -83,6 +107,7 @@ export const Recommend = () => {
             if (cashback >= bestCash) {
                 bestCash = cashback;
                 bestCard = card;
+                bestCashParts = entries;
             }
         }
 
@@ -92,8 +117,19 @@ export const Recommend = () => {
                 description.push(<p>{cashback.description}</p>);
             }
         }
+
+        let parts = [];
+        Object.entries(bestCashParts).forEach((x) => {
+            parts.push(
+                <p>
+                    {x[0]}: ${x[1]}
+                </p>
+            );
+        });
+
         setCashbackDetails(description);
         setBestCashback(bestCash);
+        setBestCashbackParts(parts);
         setWinner(bestCard);
     }, []);
 
@@ -109,32 +145,46 @@ export const Recommend = () => {
 
     return (
         <div className={classes.container}>
-            <p className={classes.title}>
-                Our Recommendation:{" "}
-                <a href={winner.link} target="_blank">
+            <img className={classes.logo} src="../geometric.png" alt="logo" />
+            <p className={classes.title}>Our Recommendation</p>
+            <div className={classes.card}>
+                <a href={winner.link} target="_blank" rel="noreferrer">
                     {winner.name}
                 </a>
-            </p>
-            <div className={classes.card}>
-                <img src={winner.image} alt="credit card" />
-                <div className={classes.info}>
-                    <p className={classes.infoheading}>By the numbers</p>
-                    <p>APR: {winner.apr}%</p>
-                    <p>Annual Fee: ${winner.annual_fee}</p>
+                <div className={classes.body}>
+                    <img src={winner.image} alt="credit card" />
+                    <div className={classes.info}>
+                        <p className={classes.infoheading}>By the numbers</p>
+                        <p>APR: {winner.apr}%</p>
+                        <p>Annual Fee: ${winner.annual_fee}</p>
+                    </div>
+                    <div className={classes.infoSecond}>
+                        <p className={classes.infoheading}>
+                            Estimated Cashback: ${bestCashback}
+                        </p>
+                        {bestCashbackParts}
+                    </div>
+                </div>
+                <div className={classes.cashback}>
                     {winner.cashback?.length > 0 && (
                         <>
                             <p className={classes.infoheading}>
                                 Cashback Structure
                             </p>
                             {cashbackDetails}
-                            <p className={classes.infoheading}>
-                                Estimated Cashback: ${bestCashback}
-                            </p>
                         </>
                     )}
                 </div>
             </div>
-            <div className={classes.tips}>{tips}</div>
+            <div className={classes.tips}>
+                <p>Here are 3 ways to help you succeed:</p>
+                {tips}
+                {Object.keys(tips).length === 0 ? (
+                    <Spinner className={classes.spinner} size="xl" />
+                ) : (
+                    <></>
+                )}
+            </div>
         </div>
     );
 };

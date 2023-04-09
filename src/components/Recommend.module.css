@@ -5,32 +5,89 @@
     justify-items: center;
 }
 
-.title {
-    margin-top: 80px;
-    font-size: 28px;
-    font-weight: bold;
+.logo {
+    position: absolute;
+    top: 5vh;
+    left: 5vh;
+    height: 10vh;
 }
 
-.infoheading {
-    font-size: 18px;
+.title {
+    margin: 40px 0px 20px;
+    font-size: 48px;
     font-weight: bold;
 }
 
 .card {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    width: 80%;
+    width: 60%;
+    margin-bottom: 48px;
+}
+
+.card > a {
+    margin-bottom: 20px;
+    font-size: 32px;
+    text-align: center;
+}
+
+.body {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 24px;
+}
+
+.body > img {
+    height: 160px;
+    margin-right: 48px;
 }
 
 .info {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 40px;
-    max-width: 50%;
+    padding: 16px 0px 0px 24px;
+    min-width: 240px;
+    height: 100%;
+}
+
+.infoSecond {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 16px; 
+    min-width: 240px;
+    height: 100%;
+}
+
+.cashback {
+    width: 100%;
+}
+
+.infoheading {
+    font-weight: bold;
 }
 
 .tips {
-    width: 80%;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin-left: 24px;
+}
+
+.tips > p {
+    margin-left: -24px;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.tips span {
+    display: block;
+    margin: 4px 0px 0px 8px;
+}
+
+.spinner {
+    align-self: center;
+    margin-top: 32px;
 }

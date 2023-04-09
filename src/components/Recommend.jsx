@@ -1,22 +1,13 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Buffer } from "buffer";
-
-import {
-    Center,
-    Image,
-    HStack,
-    VStack,
-    Box,
-    Container,
-    Grid,
-    Text,
-} from "@chakra-ui/react";
-
+import getTips from "../utils/chatbot.js";
 import cardsData from "./../data/credit_cards.json";
-import { ClassNames } from "@emotion/react";
 import classes from "./Recommend.module.css";
 
-export function Recommend() {
+export const Recommend = () => {
+    const [tips, setTips] = useState("");
+
     let params = useParams();
     let userData = JSON.parse(
         Buffer.from(params.userData, "base64").toString()
@@ -31,106 +22,99 @@ export function Recommend() {
     userData.debt = parseInt(userData.debt);
     userData.entertainment = parseInt(userData.entertainment);
 
+    const userCategories = {
+        food: parseInt(userData.food),
+        gas: parseInt(userData.gas),
+        entertainment: parseInt(userData.entertainment),
+    };
+    const mostExpensive = Math.max(Object.values(userCategories));
+
     let availableNames = Object.keys(cardsData);
 
-    availableNames = availableNames.filter((name) => {
-        let card = cardsData[name];
-        return (card.student && userData.student) || !card.student;
-    });
-
-    availableNames = availableNames.filter((name) => {
-        let card = cardsData[name];
-        if (userData.creditScore == 0 || isNaN(userData.creditScore)) {
-            let predicted_score = 0.005524 * userData.income + 343.3;
-            return card.credit <= predicted_score;
-        }
-        return card.credit <= userData.creditScore;
-    });
-
-    let maximizer = 0;
-
-    for (const name of availableNames) {
-        let card = cardsData[name];
-        let factor = 0;
-        let total = 0;
-        for (const source of card.cashback) {
-            let contribution = 0;
-            for (const category of source.category) {
-                if (category != "all") {
-                    contribution += (source.amount / 100) * userData[category];
-                } else {
-                    contribution += Math.max(
-                        (source.amount / 100) * userData["entertainment"],
-                        (source.amount / 100) * userData["rent"],
-                        (source.amount / 100) * userData["food"]
-                    );
-                }
+    availableNames = availableNames
+        .filter((name) => {
+            let card = cardsData[name];
+            return (card.student && userData.student) || !card.student;
+        })
+        .filter((name) => {
+            let card = cardsData[name];
+            if (userData.creditScore === 0 || isNaN(userData.creditScore)) {
+                let predicted_score =
+                    0.005524 * (userData.income - userData.debt) + 343.3;
+                return card.credit <= predicted_score;
             }
-            contribution = Math.min(contribution, source.limit);
-            total += contribution;
-        }
-        factor = (userData.age - 18) / userData.debt + total - card.annual_fee;
+            if (userData.creditScore >= 650 && card.secured) {
+                return false;
+            }
+            return card.credit <= userData.creditScore;
+        });
 
-        maximizer = Math.max(factor, maximizer);
-    }
-
-    // console.log(availableNames)
-
+    let bestCashback = Number.NEGATIVE_INFINITY;
     let winner = null;
 
     for (const name of availableNames) {
         let card = cardsData[name];
-        let factor = 0;
-        let total = 0;
-        for (const source of card.cashback) {
-            let contribution = 0;
-            for (const category of source.category) {
-                if (category != "all") {
-                    contribution += (source.amount / 100) * userData[category];
-                } else {
-                    contribution += Math.max(
-                        (source.amount / 100) * userData["entertainment"],
-                        (source.amount / 100) * userData["rent"],
-                        (source.amount / 100) * userData["food"]
-                    );
+        card["name"] = name;
+        let cashback = 0.0;
+        Object.entries(userCategories).forEach((entry) => {
+            const [key, value] = entry;
+            for (const source of card.cashback) {
+                if (
+                    source.category.includes(key) ||
+                    (source.category.includes("choice") &&
+                        value === mostExpensive) ||
+                    source.category[0] === "all"
+                ) {
+                    if (source.limit === 0) {
+                        cashback += (12 * value * source.amount) / 100.0;
+                    } else {
+                        cashback += Math.min(
+                            source.limit,
+                            (12 * value * source.amount) / 100.0
+                        );
+                    }
+                    break;
                 }
             }
-            contribution = Math.min(contribution, source.limit);
-            total += contribution;
-        }
-        factor = (userData.age - 18) / userData.debt + total - card.annual_fee;
-        if (factor === maximizer) {
+        });
+
+        cashback = cashback - card.annual_fee;
+        if (cashback >= bestCashback) {
+            bestCashback = cashback;
             winner = card;
-            winner.name = name;
         }
     }
 
-    let cashbackDetails = []
-
+    let cashbackDetails = [];
     for (const cashback of winner.cashback) {
-      cashbackDetails.push(<p>{cashback.description}</p>)
+        cashbackDetails.push(<p>{cashback.description}</p>);
     }
+
+    // useEffect(() => {
+    //     const callTips = async () => {
+    //         setTips(await getTips());
+    //     };
+    //     callTips();
+    // }, []);
 
     return (
         <div className={classes.container}>
-            <p className={classes.title}>Our Recommendation</p>
+            <p className={classes.title}>Our Recommendation: {winner.name}</p>
             <div className={classes.card}>
-                <div className={classes.image}>
-                  <img src={winner.image} alt="credit card" />
-                  <p>{winner.name}</p>
-                </div>
+                <img src={winner.image} alt="credit card" />
                 <div className={classes.info}>
-                  <p>APR: {winner.apr}%</p>
-                  <p>Annual Fee: ${winner.annual_fee}</p>
-                  {winner.cashback.length > 0 && 
-                  <>
-                    <p>Cashback Structure</p>
-                    {cashbackDetails}
-                  </>
-                  }
+                    <p>APR: {winner.apr}%</p>
+                    <p>Annual Fee: ${winner.annual_fee}</p>
+                    <p>Estimated Cashback: ${bestCashback}</p>
+                    {winner.cashback.length > 0 && (
+                        <>
+                            <p>Cashback Structure</p>
+                            {cashbackDetails}
+                        </>
+                    )}
                 </div>
             </div>
-            <div className={classes.tips}></div>
+            <div className={classes.tips}>{tips}</div>
         </div>
     );
-}
+};

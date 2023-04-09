@@ -90,7 +90,7 @@ for type, link in LINKS.items():
                     if limit < 50:
                         limit = 0
                     elif "quarterly maximum" in description:
-                        limit = 75
+                        limit = 300
 
                     category = set()
                     if i == len(cashback_list) - 2:

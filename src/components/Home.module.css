@@ -11,6 +11,14 @@
     position: absolute;
 }
 
+.about {
+    position: absolute;
+    color: gray;
+    font-size: 18px;
+    top: 5vh;
+    left: 85vw;
+}
+
 .logo {
     top: 5vh;
     left: 5vh;

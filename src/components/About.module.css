@@ -11,18 +11,6 @@
     position: absolute;
 }
 
-.logo {
-    top: 5vh;
-    left: 5vh;
-    height: 15%;
-}
-
-.about {
-    color: gray;
-    font-size: 18px;
-    top: 5vh;
-    left: 85vw;
-}
 
 .card {
     bottom: 5%;

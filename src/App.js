@@ -1,87 +1,29 @@
 import './App.css';
-import { Formik } from 'formik';
-import Container from '@mui/material/Container';
-import { Box, Grid, TextField, Checkbox, Button, Link, FormControlLabel } from '@mui/material';
+
+import { ChakraProvider, Text, Box } from '@chakra-ui/react';
+
+import { Home } from './components/Home'
+import { Form } from './components/Form';
+
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
 
 function App() {
+  
   return (
-    <Container className="form-container" maxWidth="lg">
-      <Box sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            backgroundColor: 'white',
-          }}>
-        <Box component="form" noValidate  sx={{ mt: 3 }}>
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete="given-name"
-                  name="firstName"
-                  required
-                  fullWidth
-                  id="firstName"
-                  label="First Name"
-                  autoFocus
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="family-name"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="password"
-                  label="Password"
-                  type="password"
-                  id="password"
-                  autoComplete="new-password"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <FormControlLabel
-                  control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="I want to receive inspiration, marketing promotions and updates via email."
-                />
-              </Grid>
-            </Grid>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Sign Up
-            </Button>
-            <Grid container justifyContent="flex-end">
-              <Grid item>
-                <Link href="#" variant="body2">
-                  Already have an account? Sign in
-                </Link>
-              </Grid>
-            </Grid>
-          </Box>
-      </Box>
-    </Container>
+    <Router>
+      <ChakraProvider>
+        <Routes>
+          <Route exact path="/" element={<Home/>}/>
+          <Route exact path="/form" element={<Form/>}/>
+        </Routes>
+      </ChakraProvider>
+    </Router>
+    
   );
 }
 

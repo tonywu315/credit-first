@@ -4,28 +4,43 @@
     align-items: center;
     width: 100vw;
     height: 100vh;
-    background-color: gray;
+    border: none;
+    background-image: url("../../public/background_blur.png");
+    background-size: cover;
 }
 
 .card {
     display: flex;
     justify-content: center;
-    width: 80%;
+    align-items: center;
+    width: 70%;
     height: 70%;
-    border-radius: 32px;
-    background-color: #517fa2;
-    box-shadow: 6px 8px 16px 0.2px #517fa2;
+    border: none;
 }
 
 .info {
-    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 45%;
+    height: 90%;
+    background-color: #3182ce;
+}
+
+.info > p {
+    width: 70%;
+    color: #edf2f7;
+    font-size: 36px;
+    text-align: center;
 }
 
 .form {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 50% !important;
-    border-radius: 0px 32px 32px 0px;
+    width: 55% !important;
+    height: 100%;
+    border: none;
     background-color: #edf2f7;
 }

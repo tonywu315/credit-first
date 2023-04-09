@@ -1,0 +1,12 @@
+.button {
+    background-color: lightgray;
+    width: 100px;
+}
+
+.text {
+    font-size: 18px;
+}
+
+.bottom {
+    margin-top: 24px !important;
+}

@@ -24,7 +24,9 @@ export const Form = () => {
     return (
         <div className={classes.container}>
             <div className={classes.card}>
-                <div className={classes.info}></div>
+                <div className={classes.info}>
+                    <p>Let's get a basic understanding of your finances!</p>
+                </div>
                 <Container className={classes.form} maxW="container.md">
                     <form
                         onReset={form.handleReset(handleReset)}

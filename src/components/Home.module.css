@@ -1,0 +1,54 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container > img {
+    position: absolute;
+}
+
+.logo {
+    top: 5vh;
+    left: 5vh;
+    height: 15%;
+}
+
+.card {
+    bottom: 5%;
+    right: 5%;
+    height: 35%; 
+}
+
+.title {
+    margin-bottom: 32px;
+    font-size: 52px;
+}
+
+.text {
+    font-weight: 400;
+    font-size: 28px;
+}
+
+.center {
+    position: absolute;
+    left: 20%;
+    display: flex;
+    flex-direction: column;
+}
+
+.center > button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 280px;
+    height: 72px;
+    margin-top: 48px;
+    border-radius: 24px;
+    background-color: #517FA2;
+    font-size: 36px;
+    color: #EDF2F7;
+}

@@ -1,20 +1,19 @@
 import { Configuration, OpenAIApi } from "openai";
+import { OPENAI_API_KEY } from "./env.mjs";
 
 const configuration = new Configuration({
-    apiKey: process.env.OPENAI_API_KEY,
+    apiKey: OPENAI_API_KEY,
 });
 
-const getTips = async () => {
-    const age = 43;
-    const debt = 2000;
-    const rent = 400;
-    const salary = 2400;
-
+const getTips = async (data) => {
     const prompt = `You are a financial manager. You are advising someone who \
-                    is ${age} and who's financial goals is to pay off their \
-                    debt. They have $${debt} in debt, spend $${rent} on rent a \
-                    month, and earn $${salary} monthly. This person has never \
-                    had a credit card. Start the response with and only with: \
+                    is ${data.age} and who's financial goals is to pay off \
+                    their debt. They have $${data.debt} monthly in debt, spend \
+                    $${data.rent} on rent a month, and earn $${data.salary} \
+                    monthly. Each month, they spend $${data.entertainment} on \
+                    entertainment, $${data.food} on food, $${data.gas} on gas, \
+                    and $${data.other} on other expenses. Their main goal is \
+                    $${data.goals}. Start the response with and only with: \
                     "Here are 3 ways to help you succeed:". What 3 pieces of \
                     advice would you give? Use the numbers given in this \
                     prompt to inform your decisions.`;
@@ -31,6 +30,7 @@ const getTips = async () => {
             n: 1,
         });
         result = completion.data.choices[0].text;
+        console.log("hi")
     } catch (error) {
         if (error.response) {
             console.log(error.response.status);
@@ -40,7 +40,9 @@ const getTips = async () => {
         }
     }
 
-    console.log(result);
+    return result;
 };
+
+getTips();
 
 export default getTips;

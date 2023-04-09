@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Buffer } from "buffer";
-import getTips from "../utils/chatbot.js";
+import getTips from "../utils/chatbot.mjs";
 import cardsData from "./../data/credit_cards.json";
 import classes from "./Recommend.module.css";
 
 export const Recommend = () => {
+    const params = useParams();
     const [tips, setTips] = useState("");
+    const [winner, setWinner] = useState({});
+    const [bestCashback, setBestCashback] = useState(Number.NEGATIVE_INFINITY);
+    const [cashbackDetails, setCashbackDetails] = useState({});
 
-    let params = useParams();
     let userData = JSON.parse(
         Buffer.from(params.userData, "base64").toString()
     ); // these are where the answers are
-
     userData.age = parseInt(userData.age);
     userData.creditScore = parseInt(userData.creditScore);
     userData.income = parseInt(userData.income);
@@ -22,80 +24,89 @@ export const Recommend = () => {
     userData.debt = parseInt(userData.debt);
     userData.entertainment = parseInt(userData.entertainment);
 
-    const userCategories = {
-        food: parseInt(userData.food),
-        gas: parseInt(userData.gas),
-        entertainment: parseInt(userData.entertainment),
-    };
-    const mostExpensive = Math.max(Object.values(userCategories));
-
-    let availableNames = Object.keys(cardsData);
-
-    availableNames = availableNames
-        .filter((name) => {
-            let card = cardsData[name];
-            return (card.student && userData.student) || !card.student;
-        })
-        .filter((name) => {
-            let card = cardsData[name];
-            if (userData.creditScore === 0 || isNaN(userData.creditScore)) {
-                let predicted_score =
-                    0.005524 * (userData.income - userData.debt) + 343.3;
-                return card.credit <= predicted_score;
-            }
-            if (userData.creditScore >= 650 && card.secured) {
-                return false;
-            }
-            return card.credit <= userData.creditScore;
-        });
-
-    let bestCashback = Number.NEGATIVE_INFINITY;
-    let winner = null;
-
-    for (const name of availableNames) {
-        let card = cardsData[name];
-        card["name"] = name;
-        let cashback = 0.0;
-        Object.entries(userCategories).forEach((entry) => {
-            const [key, value] = entry;
-            for (const source of card.cashback) {
-                if (
-                    source.category.includes(key) ||
-                    (source.category.includes("choice") &&
-                        value === mostExpensive) ||
-                    source.category[0] === "all"
-                ) {
-                    if (source.limit === 0) {
-                        cashback += (12 * value * source.amount) / 100.0;
-                    } else {
-                        cashback += Math.min(
-                            source.limit,
-                            (12 * value * source.amount) / 100.0
-                        );
-                    }
-                    break;
+    useEffect(() => {
+        const userCategories = {
+            food: userData.food,
+            gas: userData.gas,
+            entertainment: userData.entertainment,
+        };
+        const mostExpensive = Math.max(Object.values(userCategories));
+        const availableNames = Object.keys(cardsData)
+            .filter((name) => {
+                let card = cardsData[name];
+                return (card.student && userData.student) || !card.student;
+            })
+            .filter((name) => {
+                let card = cardsData[name];
+                if (userData.creditScore === 0 || isNaN(userData.creditScore)) {
+                    let predicted_score =
+                        0.005524 * (userData.income - userData.debt) + 343.3;
+                    return card.credit <= predicted_score;
                 }
+                if (userData.creditScore >= 650 && card.secured) {
+                    return false;
+                }
+                return card.credit <= userData.creditScore;
+            });
+
+        let bestCash = Number.NEGATIVE_INFINITY;
+        let bestCard = null;
+
+        for (const name of availableNames) {
+            let card = cardsData[name];
+            card["name"] = name;
+
+            let cashback = 0.0;
+            Object.entries(userCategories).forEach((entry) => {
+                const [key, value] = entry;
+                for (const source of card.cashback) {
+                    if (
+                        source.category.includes(key) ||
+                        (source.category.includes("choice") &&
+                            value === mostExpensive) ||
+                        source.category[0] === "all"
+                    ) {
+                        if (source.limit === 0) {
+                            cashback += (12 * value * source.amount) / 100.0;
+                        } else {
+                            cashback += Math.min(
+                                source.limit,
+                                (12 * value * source.amount) / 100.0
+                            );
+                        }
+                        break;
+                    }
+                }
+            });
+
+            cashback = cashback - card.annual_fee;
+            if (cashback >= bestCash) {
+                bestCash = cashback;
+                bestCard = card;
             }
-        });
-
-        cashback = cashback - card.annual_fee;
-        if (cashback >= bestCashback) {
-            bestCashback = cashback;
-            winner = card;
         }
-    }
 
-    let cashbackDetails = [];
-    for (const cashback of winner.cashback) {
-        cashbackDetails.push(<p>{cashback.description}</p>);
-    }
+        let description = [];
+        if (bestCard.cashback) {
+            for (const cashback of bestCard.cashback) {
+                description.push(<p>{cashback.description}</p>);
+            }
+        }
+        setCashbackDetails(description);
+        setBestCashback(bestCash);
+        setWinner(bestCard);
+    }, []);
 
-    // useEffect(() => {
-    //     const callTips = async () => {
-    //         setTips(await getTips());
-    //     };
-    //     callTips();
-    // }, []);
+    useEffect(() => {
+        const callTips = async () => {
+            const response = await getTips(userData);
+            setTips(response);
+        };
+        if (userData) {
+            console.log(userData);
+            callTips();
+        }
+    }, []);
 
     return (
         <div className={classes.container}>
@@ -106,7 +117,7 @@ export const Recommend = () => {
                     <p>APR: {winner.apr}%</p>
                     <p>Annual Fee: ${winner.annual_fee}</p>
                     <p>Estimated Cashback: ${bestCashback}</p>
-                    {winner.cashback.length > 0 && (
+                    {winner.cashback?.length > 0 && (
                         <>
                             <p>Cashback Structure</p>
                             {cashbackDetails}

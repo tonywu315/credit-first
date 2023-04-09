@@ -16,6 +16,8 @@ import cardsData from "./../data/credit_cards.json";
 import { ClassNames } from "@emotion/react";
 import classes from "./Recommend.module.css";
 
+import classes from './Recommend.module.css';
+
 export function Recommend() {
     let params = useParams();
     let userData = JSON.parse(
